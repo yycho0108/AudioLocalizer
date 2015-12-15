@@ -4,7 +4,7 @@ from PyQt4.QtGui import *
 class ScreenWidget(QFrame):
     def __init__(self,parent=None):
         QFrame.__init__(self,parent);
-        self.data = [(0,0),(0,0)];
+        self.data = (0,0);
     def setLoc(self,data):
         """setLoc(self,data)
         data = ((float,float) , (float,float))
@@ -54,13 +54,6 @@ class ScreenWidget(QFrame):
         oPen.setWidthF(.3);
 
         p.setPen(oPen);
-        if len(d) == 2:
-            P1 = QPointF(d[0][0],d[0][1]);
-            P2 = QPointF(d[1][0],d[1][1]);
-            p.drawPoints(P1,P2);
-        elif len(d) == 1:
-            #d = list of QVariant
-            P1 = QPointF(d[0][0],d[0][1]);
-            p.drawPoint(P1);
-
+        pt = QPointF(d[0],d[1]);
+        p.drawPoint(pt);
         QFrame.paintEvent(self,event);

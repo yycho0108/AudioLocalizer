@@ -14,9 +14,9 @@
    <string>MainWindow</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <layout class="QGridLayout" name="gridLayout_2">
+   <layout class="QGridLayout" name="gridLayout">
     <item row="0" column="0">
-     <widget class="QSplitter" name="splitter_4">
+     <widget class="QSplitter" name="splitter_14">
       <property name="orientation">
        <enum>Qt::Vertical</enum>
       </property>
@@ -37,78 +37,180 @@
         <number>3</number>
        </property>
       </widget>
-      <widget class="QSplitter" name="splitter_3">
+      <widget class="QSplitter" name="splitter_13">
        <property name="orientation">
         <enum>Qt::Vertical</enum>
        </property>
-       <widget class="QSplitter" name="splitter">
-        <property name="sizePolicy">
-         <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
-          <horstretch>0</horstretch>
-          <verstretch>1</verstretch>
-         </sizepolicy>
-        </property>
+       <widget class="QSplitter" name="splitter_11">
         <property name="orientation">
-         <enum>Qt::Horizontal</enum>
+         <enum>Qt::Vertical</enum>
         </property>
-        <widget class="QLabel" name="label_2">
-         <property name="text">
-          <string>Candidate 1:</string>
-         </property>
-        </widget>
-        <widget class="QLineEdit" name="x1Edit">
+        <widget class="QSplitter" name="splitter_12">
          <property name="sizePolicy">
-          <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+          <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
            <horstretch>0</horstretch>
-           <verstretch>0</verstretch>
+           <verstretch>1</verstretch>
           </sizepolicy>
          </property>
-         <property name="readOnly">
-          <bool>false</bool>
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
          </property>
-         <property name="placeholderText">
-          <string>x</string>
-         </property>
-        </widget>
-        <widget class="QLineEdit" name="y1Edit">
-         <property name="readOnly">
-          <bool>false</bool>
-         </property>
-         <property name="placeholderText">
-          <string>y</string>
-         </property>
+         <widget class="QLabel" name="label_7">
+          <property name="text">
+           <string>Candidate 1:</string>
+          </property>
+         </widget>
+         <widget class="QLineEdit" name="x1Edit">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="readOnly">
+           <bool>false</bool>
+          </property>
+          <property name="placeholderText">
+           <string>x</string>
+          </property>
+         </widget>
+         <widget class="QLineEdit" name="y1Edit">
+          <property name="readOnly">
+           <bool>false</bool>
+          </property>
+          <property name="placeholderText">
+           <string>y</string>
+          </property>
+         </widget>
         </widget>
        </widget>
-       <widget class="QSplitter" name="splitter_2">
-        <property name="sizePolicy">
-         <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
-          <horstretch>0</horstretch>
-          <verstretch>1</verstretch>
-         </sizepolicy>
-        </property>
+       <widget class="QSplitter" name="splitter_3">
         <property name="orientation">
-         <enum>Qt::Horizontal</enum>
+         <enum>Qt::Vertical</enum>
         </property>
-        <widget class="QLabel" name="label">
-         <property name="text">
-          <string>Candidate 2:</string>
+        <widget class="QSplitter" name="splitter">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
+           <horstretch>0</horstretch>
+           <verstretch>1</verstretch>
+          </sizepolicy>
          </property>
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+         <widget class="QLabel" name="label_2">
+          <property name="text">
+           <string>Candidate 2:</string>
+          </property>
+         </widget>
+         <widget class="QLineEdit" name="x2Edit">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="readOnly">
+           <bool>false</bool>
+          </property>
+          <property name="placeholderText">
+           <string>x</string>
+          </property>
+         </widget>
+         <widget class="QLineEdit" name="y2Edit">
+          <property name="readOnly">
+           <bool>false</bool>
+          </property>
+          <property name="placeholderText">
+           <string>y</string>
+          </property>
+         </widget>
         </widget>
-        <widget class="QLineEdit" name="x2Edit">
-         <property name="readOnly">
-          <bool>false</bool>
+       </widget>
+       <widget class="QSplitter" name="splitter_4">
+        <property name="orientation">
+         <enum>Qt::Vertical</enum>
+        </property>
+        <widget class="QSplitter" name="splitter_5">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
+           <horstretch>0</horstretch>
+           <verstretch>1</verstretch>
+          </sizepolicy>
          </property>
-         <property name="placeholderText">
-          <string>x</string>
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
          </property>
+         <widget class="QLabel" name="label_5">
+          <property name="text">
+           <string>Candidate 3:</string>
+          </property>
+         </widget>
+         <widget class="QLineEdit" name="x3Edit">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="readOnly">
+           <bool>false</bool>
+          </property>
+          <property name="placeholderText">
+           <string>x</string>
+          </property>
+         </widget>
+         <widget class="QLineEdit" name="y3Edit">
+          <property name="readOnly">
+           <bool>false</bool>
+          </property>
+          <property name="placeholderText">
+           <string>y</string>
+          </property>
+         </widget>
         </widget>
-        <widget class="QLineEdit" name="y2Edit">
-         <property name="readOnly">
-          <bool>false</bool>
+       </widget>
+       <widget class="QSplitter" name="splitter_9">
+        <property name="orientation">
+         <enum>Qt::Vertical</enum>
+        </property>
+        <widget class="QSplitter" name="splitter_10">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
+           <horstretch>0</horstretch>
+           <verstretch>1</verstretch>
+          </sizepolicy>
          </property>
-         <property name="placeholderText">
-          <string>y</string>
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
          </property>
+         <widget class="QLabel" name="label_6">
+          <property name="text">
+           <string>Candidate 4:</string>
+          </property>
+         </widget>
+         <widget class="QLineEdit" name="x4Edit">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="readOnly">
+           <bool>false</bool>
+          </property>
+          <property name="placeholderText">
+           <string>x</string>
+          </property>
+         </widget>
+         <widget class="QLineEdit" name="y4Edit">
+          <property name="readOnly">
+           <bool>false</bool>
+          </property>
+          <property name="placeholderText">
+           <string>y</string>
+          </property>
+         </widget>
         </widget>
        </widget>
       </widget>
@@ -140,6 +242,17 @@
    <addaction name="menuView"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
+  <widget class="QToolBar" name="toolBar">
+   <property name="windowTitle">
+    <string>toolBar</string>
+   </property>
+   <attribute name="toolBarArea">
+    <enum>TopToolBarArea</enum>
+   </attribute>
+   <attribute name="toolBarBreak">
+    <bool>false</bool>
+   </attribute>
+  </widget>
   <action name="actionHistory">
    <property name="text">
     <string>History</string>

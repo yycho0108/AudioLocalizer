@@ -22,13 +22,13 @@ except AttributeError:
     def _translate(context, text, disambig):
         return QtGui.QApplication.translate(context, text, disambig)
 
-class Ui_Form(object):
-    def setupUi(self, Form):
-        Form.setObjectName(_fromUtf8("Form"))
-        Form.resize(752, 400)
-        self.gridLayout = QtGui.QGridLayout(Form)
+class Ui_History(object):
+    def setupUi(self, History):
+        History.setObjectName(_fromUtf8("History"))
+        History.resize(752, 400)
+        self.gridLayout = QtGui.QGridLayout(History)
         self.gridLayout.setObjectName(_fromUtf8("gridLayout"))
-        self.splitter = QtGui.QSplitter(Form)
+        self.splitter = QtGui.QSplitter(History)
         self.splitter.setOrientation(QtCore.Qt.Horizontal)
         self.splitter.setObjectName(_fromUtf8("splitter"))
         self.diary = QtGui.QTableWidget(self.splitter)
@@ -37,7 +37,7 @@ class Ui_Form(object):
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(self.diary.sizePolicy().hasHeightForWidth())
         self.diary.setSizePolicy(sizePolicy)
-        self.diary.setColumnCount(2)
+        self.diary.setColumnCount(4)
         self.diary.setObjectName(_fromUtf8("diary"))
         self.diary.setRowCount(0)
         self.screen = ScreenWidget(self.splitter)
@@ -51,10 +51,10 @@ class Ui_Form(object):
         self.screen.setObjectName(_fromUtf8("screen"))
         self.gridLayout.addWidget(self.splitter, 0, 0, 1, 1)
 
-        self.retranslateUi(Form)
-        QtCore.QMetaObject.connectSlotsByName(Form)
+        self.retranslateUi(History)
+        QtCore.QMetaObject.connectSlotsByName(History)
 
-    def retranslateUi(self, Form):
-        Form.setWindowTitle(_translate("Form", "Form", None))
+    def retranslateUi(self, History):
+        History.setWindowTitle(_translate("History", "Form", None))
 
 from ScreenWidget import ScreenWidget
