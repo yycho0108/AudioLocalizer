@@ -1,0 +1,63 @@
+List(List(Rule(x,(pow(b,3)*c*d + pow(c,3)*pow(sos,2)*pow(t1,2) + c*pow(d,2)*pow(sos,2)*pow(t1,2) - 2*pow(c,3)*pow(sos,2)*t1*t2 - 2*c*pow(d,2)*pow(sos,2)*t1*t2 - c*pow(sos,4)*pow(t1,3)*t2 + 
+        pow(c,3)*pow(sos,2)*pow(t2,2) + c*pow(d,2)*pow(sos,2)*pow(t2,2) + 2*c*pow(sos,4)*pow(t1,2)*pow(t2,2) - c*pow(sos,4)*t1*pow(t2,3) + 
+        b*d*(pow(a,2)*c - c*pow(sos,2)*pow(t1 - t2,2) + a*(pow(c,2) + pow(d,2) - pow(sos,2)*pow(t1 - t3,2))) + pow(a,3)*(-pow(d,2) + pow(sos,2)*pow(t1 - t3,2)) - 
+        pow(a,2)*c*pow(sos,2)*(t1 - t2)*(t1 - t3) + c*pow(sos,4)*pow(t1,3)*t3 - c*pow(sos,4)*pow(t1,2)*t2*t3 - c*pow(sos,4)*t1*pow(t2,2)*t3 + c*pow(sos,4)*pow(t2,3)*t3 - 
+        c*pow(sos,4)*pow(t1,2)*pow(t3,2) + 2*c*pow(sos,4)*t1*t2*pow(t3,2) - c*pow(sos,4)*pow(t2,2)*pow(t3,2) + 
+        sqrt(-(pow(sos,2)*(-pow(a,2) - pow(b,2) + pow(sos,2)*pow(t1 - t2,2))*(pow(c,2) + pow(d,2) - pow(sos,2)*pow(t1 - t3,2))*
+            (pow(a,2) + pow(b,2) - 2*a*c + pow(c,2) - 2*b*d + pow(d,2) - pow(sos,2)*pow(t2,2) + 2*pow(sos,2)*t2*t3 - pow(sos,2)*pow(t3,2))*pow(d*(t1 - t2) + b*(-t1 + t3),2))) + 
+        a*pow(sos,2)*(t1 - t2)*((-pow(d,2) + pow(sos,2)*pow(t1 - t3,2))*(t2 - t3) + pow(c,2)*(-t1 + t3)) - 
+        pow(b,2)*(pow(c,3) + a*(pow(d,2) - pow(sos,2)*pow(t1 - t3,2)) + c*(pow(d,2) + pow(sos,2)*(t1 - t3)*(-t2 + t3))))/
+      (2.*((pow(c,2) + pow(d,2))*pow(sos,2)*pow(t1 - t2,2) + 2*b*d*(a*c - pow(sos,2)*(t1 - t2)*(t1 - t3)) + pow(b,2)*(-pow(c,2) + pow(sos,2)*pow(t1 - t3,2)) + 
+          pow(a,2)*(-pow(d,2) + pow(sos,2)*pow(t1 - t3,2)) - 2*a*c*pow(sos,2)*(t1 - t2)*(t1 - t3)))),
+    Rule(y,(pow(a,3)*c*d*(d*(-t1 + t2) + b*(t1 - t3)) + pow(b,3)*d*(t1 - t2)*(pow(c,2) - 2*pow(sos,2)*pow(t1 - t3,2)) + pow(b,4)*(-pow(c,2) + pow(sos,2)*pow(t1 - t3,2))*(t1 - t3) - 
+        pow(b,2)*pow(sos,2)*(t1 - t2)*(pow(c,2) + pow(d,2) - pow(sos,2)*pow(t1 - t3,2))*(t1 - t3)*(t2 - t3) + 
+        (t1 - t2)*(-(pow(c,2)*pow(d,2)*pow(sos,2)*pow(t1,2)) - pow(d,4)*pow(sos,2)*pow(t1,2) + 2*pow(c,2)*pow(d,2)*pow(sos,2)*t1*t2 + 2*pow(d,4)*pow(sos,2)*t1*t2 + 
+           pow(d,2)*pow(sos,4)*pow(t1,3)*t2 - pow(c,2)*pow(d,2)*pow(sos,2)*pow(t2,2) - pow(d,4)*pow(sos,2)*pow(t2,2) - 2*pow(d,2)*pow(sos,4)*pow(t1,2)*pow(t2,2) + 
+           pow(d,2)*pow(sos,4)*t1*pow(t2,3) - pow(d,2)*pow(sos,4)*pow(t1,3)*t3 + pow(d,2)*pow(sos,4)*pow(t1,2)*t2*t3 + pow(d,2)*pow(sos,4)*t1*pow(t2,2)*t3 - pow(d,2)*pow(sos,4)*pow(t2,3)*t3 + 
+           pow(d,2)*pow(sos,4)*pow(t1,2)*pow(t3,2) - 2*pow(d,2)*pow(sos,4)*t1*t2*pow(t3,2) + pow(d,2)*pow(sos,4)*pow(t2,2)*pow(t3,2) + 
+           c*sqrt(pow(sos,2)*(pow(a,2) + pow(b,2) - pow(sos,2)*pow(t1 - t2,2))*(pow(c,2) + pow(d,2) - pow(sos,2)*pow(t1 - t3,2))*
+              (pow(a,2) + pow(b,2) - 2*a*c + pow(c,2) - 2*b*d + pow(d,2) - pow(sos,2)*pow(t2,2) + 2*pow(sos,2)*t2*t3 - pow(sos,2)*pow(t3,2))*pow(d*(t1 - t2) + b*(-t1 + t3),2))) - 
+        a*(-(pow(b,2)*pow(c,3)*t1) - pow(b,3)*c*d*t1 + b*pow(c,3)*d*t1 + b*c*pow(d,3)*t1 + pow(b,2)*c*pow(sos,2)*pow(t1,3) - c*pow(d,2)*pow(sos,2)*pow(t1,3) - b*pow(c,3)*d*t2 - 
+           pow(b,2)*c*pow(d,2)*t2 - b*c*pow(d,3)*t2 - b*c*d*pow(sos,2)*pow(t1,2)*t2 + 3*c*pow(d,2)*pow(sos,2)*pow(t1,2)*t2 + b*c*d*pow(sos,2)*t1*pow(t2,2) - 3*c*pow(d,2)*pow(sos,2)*t1*pow(t2,2) + 
+           c*pow(d,2)*pow(sos,2)*pow(t2,3) + pow(b,2)*pow(c,3)*t3 + pow(b,3)*c*d*t3 + pow(b,2)*c*pow(d,2)*t3 - 3*pow(b,2)*c*pow(sos,2)*pow(t1,2)*t3 + b*c*d*pow(sos,2)*pow(t1,2)*t3 - 
+           b*c*d*pow(sos,2)*pow(t2,2)*t3 + 3*pow(b,2)*c*pow(sos,2)*t1*pow(t3,2) - b*c*d*pow(sos,2)*t1*pow(t3,2) + b*c*d*pow(sos,2)*t2*pow(t3,2) - pow(b,2)*c*pow(sos,2)*pow(t3,3) + 
+           t1*sqrt(pow(sos,2)*(pow(a,2) + pow(b,2) - pow(sos,2)*pow(t1 - t2,2))*(pow(c,2) + pow(d,2) - pow(sos,2)*pow(t1 - t3,2))*
+              (pow(a,2) + pow(b,2) - 2*a*c + pow(c,2) - 2*b*d + pow(d,2) - pow(sos,2)*pow(t2,2) + 2*pow(sos,2)*t2*t3 - pow(sos,2)*pow(t3,2))*pow(d*(t1 - t2) + b*(-t1 + t3),2)) - 
+           t3*sqrt(pow(sos,2)*(pow(a,2) + pow(b,2) - pow(sos,2)*pow(t1 - t2,2))*(pow(c,2) + pow(d,2) - pow(sos,2)*pow(t1 - t3,2))*
+              (pow(a,2) + pow(b,2) - 2*a*c + pow(c,2) - 2*b*d + pow(d,2) - pow(sos,2)*pow(t2,2) + 2*pow(sos,2)*t2*t3 - pow(sos,2)*pow(t3,2))*pow(d*(t1 - t2) + b*(-t1 + t3),2))) + 
+        b*d*pow(sos,2)*pow(t1 - t2,2)*(pow(c,2)*(t1 + t2 - 2*t3) + 2*(t1 - t3)*(pow(d,2) + pow(sos,2)*(t1 - t3)*(-t2 + t3))) + 
+        pow(a,2)*(pow(b,2)*(-pow(c,2) + pow(sos,2)*pow(t1 - t3,2))*(t1 - t3) + b*d*(pow(d,2)*(-t1 + t3) - pow(sos,2)*pow(t1 - t3,2)*(t1 - 2*t2 + t3) + pow(c,2)*(-t2 + t3)) + 
+           pow(d,2)*(t1 - t2)*(pow(c,2) + pow(d,2) + pow(sos,2)*(t1 - t3)*(-t2 + t3))))/
+      (2.*(d*(-t1 + t2) + b*(t1 - t3))*((pow(c,2) + pow(d,2))*pow(sos,2)*pow(t1 - t2,2) + 2*b*d*(a*c - pow(sos,2)*(t1 - t2)*(t1 - t3)) + pow(b,2)*(-pow(c,2) + pow(sos,2)*pow(t1 - t3,2)) + 
+          pow(a,2)*(-pow(d,2) + pow(sos,2)*pow(t1 - t3,2)) - 2*a*c*pow(sos,2)*(t1 - t2)*(t1 - t3))))),
+   List(Rule(x,(-(pow(b,3)*c*d) - pow(c,3)*pow(sos,2)*pow(t1,2) - c*pow(d,2)*pow(sos,2)*pow(t1,2) + 2*pow(c,3)*pow(sos,2)*t1*t2 + 2*c*pow(d,2)*pow(sos,2)*t1*t2 + c*pow(sos,4)*pow(t1,3)*t2 - 
+        pow(c,3)*pow(sos,2)*pow(t2,2) - c*pow(d,2)*pow(sos,2)*pow(t2,2) - 2*c*pow(sos,4)*pow(t1,2)*pow(t2,2) + c*pow(sos,4)*t1*pow(t2,3) + 
+        b*d*(-(pow(a,2)*c) + c*pow(sos,2)*pow(t1 - t2,2) - a*(pow(c,2) + pow(d,2) - pow(sos,2)*pow(t1 - t3,2))) + pow(a,3)*(pow(d,2) - pow(sos,2)*pow(t1 - t3,2)) + 
+        a*pow(sos,2)*(t1 - t2)*(pow(c,2)*(t1 - t3) + (pow(d,2) - pow(sos,2)*pow(t1 - t3,2))*(t2 - t3)) + pow(a,2)*c*pow(sos,2)*(t1 - t2)*(t1 - t3) - c*pow(sos,4)*pow(t1,3)*t3 + 
+        c*pow(sos,4)*pow(t1,2)*t2*t3 + c*pow(sos,4)*t1*pow(t2,2)*t3 - c*pow(sos,4)*pow(t2,3)*t3 + c*pow(sos,4)*pow(t1,2)*pow(t3,2) - 2*c*pow(sos,4)*t1*t2*pow(t3,2) + 
+        c*pow(sos,4)*pow(t2,2)*pow(t3,2) + sqrt(-(pow(sos,2)*(-pow(a,2) - pow(b,2) + pow(sos,2)*pow(t1 - t2,2))*(pow(c,2) + pow(d,2) - pow(sos,2)*pow(t1 - t3,2))*
+            (pow(a,2) + pow(b,2) - 2*a*c + pow(c,2) - 2*b*d + pow(d,2) - pow(sos,2)*pow(t2,2) + 2*pow(sos,2)*t2*t3 - pow(sos,2)*pow(t3,2))*pow(d*(t1 - t2) + b*(-t1 + t3),2))) + 
+        pow(b,2)*(pow(c,3) + a*(pow(d,2) - pow(sos,2)*pow(t1 - t3,2)) + c*(pow(d,2) + pow(sos,2)*(t1 - t3)*(-t2 + t3))))/
+      (2.*(-((pow(c,2) + pow(d,2))*pow(sos,2)*pow(t1 - t2,2)) - 2*b*d*(a*c - pow(sos,2)*(t1 - t2)*(t1 - t3)) + pow(b,2)*(pow(c,2) - pow(sos,2)*pow(t1 - t3,2)) + 
+          pow(a,2)*(pow(d,2) - pow(sos,2)*pow(t1 - t3,2)) + 2*a*c*pow(sos,2)*(t1 - t2)*(t1 - t3)))),
+    Rule(y,(pow(a,3)*c*d*(d*(-t1 + t2) + b*(t1 - t3)) + pow(b,3)*d*(t1 - t2)*(pow(c,2) - 2*pow(sos,2)*pow(t1 - t3,2)) + pow(b,4)*(-pow(c,2) + pow(sos,2)*pow(t1 - t3,2))*(t1 - t3) - 
+        pow(b,2)*pow(sos,2)*(t1 - t2)*(pow(c,2) + pow(d,2) - pow(sos,2)*pow(t1 - t3,2))*(t1 - t3)*(t2 - t3) + 
+        (t1 - t2)*(-(pow(c,2)*pow(d,2)*pow(sos,2)*pow(t1,2)) - pow(d,4)*pow(sos,2)*pow(t1,2) + 2*pow(c,2)*pow(d,2)*pow(sos,2)*t1*t2 + 2*pow(d,4)*pow(sos,2)*t1*t2 + 
+           pow(d,2)*pow(sos,4)*pow(t1,3)*t2 - pow(c,2)*pow(d,2)*pow(sos,2)*pow(t2,2) - pow(d,4)*pow(sos,2)*pow(t2,2) - 2*pow(d,2)*pow(sos,4)*pow(t1,2)*pow(t2,2) + 
+           pow(d,2)*pow(sos,4)*t1*pow(t2,3) - pow(d,2)*pow(sos,4)*pow(t1,3)*t3 + pow(d,2)*pow(sos,4)*pow(t1,2)*t2*t3 + pow(d,2)*pow(sos,4)*t1*pow(t2,2)*t3 - pow(d,2)*pow(sos,4)*pow(t2,3)*t3 + 
+           pow(d,2)*pow(sos,4)*pow(t1,2)*pow(t3,2) - 2*pow(d,2)*pow(sos,4)*t1*t2*pow(t3,2) + pow(d,2)*pow(sos,4)*pow(t2,2)*pow(t3,2) - 
+           c*sqrt(pow(sos,2)*(pow(a,2) + pow(b,2) - pow(sos,2)*pow(t1 - t2,2))*(pow(c,2) + pow(d,2) - pow(sos,2)*pow(t1 - t3,2))*
+              (pow(a,2) + pow(b,2) - 2*a*c + pow(c,2) - 2*b*d + pow(d,2) - pow(sos,2)*pow(t2,2) + 2*pow(sos,2)*t2*t3 - pow(sos,2)*pow(t3,2))*pow(d*(t1 - t2) + b*(-t1 + t3),2))) + 
+        a*(pow(b,2)*pow(c,3)*t1 + pow(b,3)*c*d*t1 - b*pow(c,3)*d*t1 - b*c*pow(d,3)*t1 - pow(b,2)*c*pow(sos,2)*pow(t1,3) + c*pow(d,2)*pow(sos,2)*pow(t1,3) + b*pow(c,3)*d*t2 + 
+           pow(b,2)*c*pow(d,2)*t2 + b*c*pow(d,3)*t2 + b*c*d*pow(sos,2)*pow(t1,2)*t2 - 3*c*pow(d,2)*pow(sos,2)*pow(t1,2)*t2 - b*c*d*pow(sos,2)*t1*pow(t2,2) + 3*c*pow(d,2)*pow(sos,2)*t1*pow(t2,2) - 
+           c*pow(d,2)*pow(sos,2)*pow(t2,3) - pow(b,2)*pow(c,3)*t3 - pow(b,3)*c*d*t3 - pow(b,2)*c*pow(d,2)*t3 + 3*pow(b,2)*c*pow(sos,2)*pow(t1,2)*t3 - b*c*d*pow(sos,2)*pow(t1,2)*t3 + 
+           b*c*d*pow(sos,2)*pow(t2,2)*t3 - 3*pow(b,2)*c*pow(sos,2)*t1*pow(t3,2) + b*c*d*pow(sos,2)*t1*pow(t3,2) - b*c*d*pow(sos,2)*t2*pow(t3,2) + pow(b,2)*c*pow(sos,2)*pow(t3,3) + 
+           t1*sqrt(pow(sos,2)*(pow(a,2) + pow(b,2) - pow(sos,2)*pow(t1 - t2,2))*(pow(c,2) + pow(d,2) - pow(sos,2)*pow(t1 - t3,2))*
+              (pow(a,2) + pow(b,2) - 2*a*c + pow(c,2) - 2*b*d + pow(d,2) - pow(sos,2)*pow(t2,2) + 2*pow(sos,2)*t2*t3 - pow(sos,2)*pow(t3,2))*pow(d*(t1 - t2) + b*(-t1 + t3),2)) - 
+           t3*sqrt(pow(sos,2)*(pow(a,2) + pow(b,2) - pow(sos,2)*pow(t1 - t2,2))*(pow(c,2) + pow(d,2) - pow(sos,2)*pow(t1 - t3,2))*
+              (pow(a,2) + pow(b,2) - 2*a*c + pow(c,2) - 2*b*d + pow(d,2) - pow(sos,2)*pow(t2,2) + 2*pow(sos,2)*t2*t3 - pow(sos,2)*pow(t3,2))*pow(d*(t1 - t2) + b*(-t1 + t3),2))) + 
+        b*d*pow(sos,2)*pow(t1 - t2,2)*(pow(c,2)*(t1 + t2 - 2*t3) + 2*(t1 - t3)*(pow(d,2) + pow(sos,2)*(t1 - t3)*(-t2 + t3))) + 
+        pow(a,2)*(pow(b,2)*(-pow(c,2) + pow(sos,2)*pow(t1 - t3,2))*(t1 - t3) + b*d*(pow(d,2)*(-t1 + t3) - pow(sos,2)*pow(t1 - t3,2)*(t1 - 2*t2 + t3) + pow(c,2)*(-t2 + t3)) + 
+           pow(d,2)*(t1 - t2)*(pow(c,2) + pow(d,2) + pow(sos,2)*(t1 - t3)*(-t2 + t3))))/
+      (2.*(d*(-t1 + t2) + b*(t1 - t3))*((pow(c,2) + pow(d,2))*pow(sos,2)*pow(t1 - t2,2) + 2*b*d*(a*c - pow(sos,2)*(t1 - t2)*(t1 - t3)) + pow(b,2)*(-pow(c,2) + pow(sos,2)*pow(t1 - t3,2)) + 
+          pow(a,2)*(-pow(d,2) + pow(sos,2)*pow(t1 - t3,2)) - 2*a*c*pow(sos,2)*(t1 - t2)*(t1 - t3))))))
