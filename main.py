@@ -5,6 +5,7 @@ import serial, sys
 import pickle
 import threading
 import re
+import math
 
 #QT modules
 from PyQt4 import uic
@@ -15,6 +16,30 @@ from PyQt4.QtCore import *
 import mainUI
 from HistoryWidget import HistoryWidget
 import Locator
+
+def dist(p1,p2):
+    tot = 0;
+    for d in zip(p1,p2):
+        tot += (d[0] - d[1])**2;
+    return math.sqrt(tot);
+
+def getPair(pts):
+    #[].sort(key=lambda pt:pt[0]); #sort by x
+    minDist = float('Inf');
+    pair = None;
+
+    for pt1 in pts:
+        for pt2 in pts:
+            if pt1 is pt2:
+                continue;
+            d = dist(pt1,pt2);
+            if minDist > d:
+                minDist = d;
+                pair = (pt1,pt2);
+    return pair;
+
+def getAvg(pair):
+    return (pair[0][0]+pair[1][0])/2, (pair[0][1] + pair[1][1])/2;
 
 def inToM(l):
     return l * 2.45 / 100; # in -> cm -> m
@@ -41,6 +66,7 @@ class AudioLocator(QMainWindow,mainUI.Ui_AudioLocator):
                 (inToM(21),inToM(0))];
         self.locator = Locator.Locator(self.sensors);
         self.screen.setSensors(self.sensors);
+        self.history.screen.setSensors(self.sensors);
 
     def showHistory(self):
         self.history.show();
@@ -55,22 +81,24 @@ class AudioLocator(QMainWindow,mainUI.Ui_AudioLocator):
         reg = r"\[(.*)\s(.*)\s(.*)\s(.*)(?:\s*)?\](?:\s*)?"; #4 time vals
         ptrn = re.compile(reg);
         m = ptrn.search(self.data);
-        pt = [];
+        pts = [];
         try:
             l = [m.group(1),m.group(2),m.group(3),m.group(4)];
             for i in range(4):
                 x,y  = self.locator.locate(l,i);
-                pt.append((x,y));
-                #self.screen.setLoc((x,y));
+                pts.append((x,y));
                 xEdit = getattr(self,('x'+str(i+1)+'Edit'));
                 yEdit = getattr(self,('y'+str(i+1)+'Edit'));
                 xEdit.setText(repr(x));
                 yEdit.setText(repr(y));
             self.update();
-            self.history.memorize(pt);
-            
+            self.history.memorize(pts);
+            vPts = filter(lambda p: not (math.isnan(p[0]) or math.isnan(p[0])), pts);
+            p = getAvg(getPair(vPts));
+            self.screen.setLoc(p);
         except AttributeError:
             pass;
+                
     def update(self):
         QMainWindow.update(self);
         self.screen.update();
