@@ -14,7 +14,10 @@ from PyQt4.QtCore import *
 #custom modules
 import mainUI
 from HistoryWidget import HistoryWidget
-import locate
+import Locator
+
+def inToM(l):
+    return l * 2.45 / 100; # in -> cm -> m
 
 class AudioLocator(QMainWindow,mainUI.Ui_AudioLocator):
     reception = pyqtSignal();
@@ -24,40 +27,50 @@ class AudioLocator(QMainWindow,mainUI.Ui_AudioLocator):
         self.data = '';  #string-type
         self.actionHistory.triggered.connect(self.showHistory);
         self.history = HistoryWidget();
-        #self.thread = threading.Thread(target = self.fetchData);
-        #self.thread.setDaemon(True);
-        #self.thread.start();
+        self.thread = threading.Thread(target = self.fetchData);
+        self.thread.setDaemon(True);
+        self.thread.start();
         self.reception.connect(self.parseData);
         self.setWindowTitle('AudioLocator');
+
+        #set sensor value here. Will propagate to other widgets
+        self.sensors = [
+                (inToM(-36),inToM(-11)),
+                (inToM(-12),inToM(-23.5)),
+                (inToM(-9.5),inToM(15)),
+                (inToM(21),inToM(0))];
+        self.locator = Locator.Locator(self.sensors);
+        self.screen.setSensors(self.sensors);
+
     def showHistory(self):
         self.history.show();
     
     def fetchData(self):
         with serial.Serial(port='/dev/ttyACM0',baudrate=9600) as ser:
             while ser._isOpen:
-                self.data = ser.readline();
+                self.data = str(ser.readline());
                 self.reception.emit();
+
     def parseData(self):
-        reg = r"(.*) (.*) (.*) (.*)"; #4 time vals
+        reg = r"\[(.*)\s(.*)\s(.*)\s(.*)(?:\s*)?\](?:\s*)?"; #4 time vals
         ptrn = re.compile(reg);
         m = ptrn.search(self.data);
-        
         pt = [];
         try:
             l = [m.group(1),m.group(2),m.group(3),m.group(4)];
             for i in range(4):
-                x,y  = locate.locate(l,i);
+                x,y  = self.locator.locate(l,i);
                 pt.append((x,y));
-                self.screen.setLoc((x,y));
+                #self.screen.setLoc((x,y));
                 xEdit = getattr(self,('x'+str(i+1)+'Edit'));
                 yEdit = getattr(self,('y'+str(i+1)+'Edit'));
                 xEdit.setText(repr(x));
                 yEdit.setText(repr(y));
-
-                self.update();
+            self.update();
             self.history.memorize(pt);
+            
         except AttributeError:
-            raise;
+            pass;
     def update(self):
         QMainWindow.update(self);
         self.screen.update();
@@ -75,7 +88,6 @@ if __name__ == "__main__":
     app = QApplication(sys.argv);
     w = AudioLocator();
     w.show();
-    w.data = '100.0 100.0 100.0 100.0';
-    w.reception.emit();
-
+    #w.data = '[' + sys.argv[1] + ' ' + sys.argv[2] + ' '+ sys.argv[3] + ' ' + sys.argv[4] + ']';
+    #w.reception.emit();
     sys.exit(app.exec_());

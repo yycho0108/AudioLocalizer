@@ -5,6 +5,16 @@ class ScreenWidget(QFrame):
     def __init__(self,parent=None):
         QFrame.__init__(self,parent);
         self.data = (0,0);
+        
+        self.S1 = QPointF(-0.5588,-.1524);
+        self.S2 = QPointF(0.0508,0.4064);
+        self.S3 = QPointF(0.6858,-0.1016);
+        self.S4 = QPointF(0,0);
+    def setSensors(self,sList):
+        self.S1 = QPointF(sList[0][0],sList[0][1]);
+        self.S2 = QPointF(sList[1][0],sList[1][1]);
+        self.S3 = QPointF(sList[2][0],sList[2][1]);
+        self.S4 = QPointF(sList[3][0],sList[3][1]);
     def setLoc(self,data):
         """setLoc(self,data)
         data = ((float,float) , (float,float))
@@ -12,9 +22,6 @@ class ScreenWidget(QFrame):
         self.data = data;
     def paintEvent(self,event):
         #when sensor location changes, update here
-        S1 = QPointF(-0.5588,-.1524);
-        S2 = QPointF(0.0508,0.4064);
-        S3 = QPointF(0.6858,-0.1016);
         
         w = self.width();
         h = self.height();
@@ -47,7 +54,7 @@ class ScreenWidget(QFrame):
         sPen = QPen(sCol);
         sPen.setWidthF(.1);
         p.setPen(sPen);
-        p.drawPoints(S1,S2,S3);
+        p.drawPoints(self.S1,self.S2,self.S3,self.S4);
 
         oCol = QColor.fromRgbF(0.9,0.1,0.1,1);
         oPen = QPen(oCol);
