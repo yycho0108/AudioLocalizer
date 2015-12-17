@@ -5,7 +5,7 @@ class ScreenWidget(QFrame):
     def __init__(self,parent=None):
         QFrame.__init__(self,parent);
         self.data = (0,0);
-        
+        self.cList = [];
         self.S1 = QPointF(-0.5588,-.1524);
         self.S2 = QPointF(0.0508,0.4064);
         self.S3 = QPointF(0.6858,-0.1016);
@@ -20,18 +20,11 @@ class ScreenWidget(QFrame):
         data = ((float,float) , (float,float))
         """
         self.data = data;
-    def paintEvent(self,event):
-        #when sensor location changes, update here
-        
-        w = self.width();
-        h = self.height();
-        d = self.data;
-        p = QPainter(self);
-
-
-        p.translate(self.width()/2,self.height()/2);
-        p.scale(1,-1);
-
+    def setCandidate(self,candidates):
+        self.cList = [];
+        for c in candidates:
+            self.cList.append(QPointF(c[0],c[1]));
+    def drawBk(self,p):
         aCol = QColor.fromRgbF(0,0,0,0.3);
         aPen = p.pen();
         aPen.setStyle(Qt.DashLine);
@@ -47,8 +40,17 @@ class ScreenWidget(QFrame):
 
         for i in range(10):
             p.drawEllipse(-1*i,-1*i,2*i,2*i);
+    def paintEvent(self,event):
+        #when sensor location changes, update here
         
-        aPen.setWidth(2);
+        w = self.width();
+        h = self.height();
+        d = self.data;
+        p = QPainter(self);
+
+        p.translate(self.width()/2,self.height()/2);
+        p.scale(1,-1);
+        self.drawBk(p);
 
         sCol = QColor.fromRgbF(0.2,0.1,0.8,0.6);
         sPen = QPen(sCol);
@@ -63,4 +65,13 @@ class ScreenWidget(QFrame):
         p.setPen(oPen);
         pt = QPointF(d[0],d[1]);
         p.drawPoint(pt);
+
+        cCol = QColor.fromRgbF(0.2,0.7,0.1,0.5);
+        cPen = QPen(cCol);
+        cPen.setWidthF(.2);
+        p.setPen(cPen);
+        
+        for c in self.cList:
+            p.drawPoint(c);
+
         QFrame.paintEvent(self,event);

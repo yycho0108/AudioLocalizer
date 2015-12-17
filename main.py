@@ -42,7 +42,7 @@ def getAvg(pair):
     return (pair[0][0]+pair[1][0])/2, (pair[0][1] + pair[1][1])/2;
 
 def inToM(l):
-    return l * 2.45 / 100; # in -> cm -> m
+    return l * 2.54 / 100; # in -> cm -> m
 
 class AudioLocator(QMainWindow,mainUI.Ui_AudioLocator):
     reception = pyqtSignal();
@@ -60,10 +60,11 @@ class AudioLocator(QMainWindow,mainUI.Ui_AudioLocator):
 
         #set sensor value here. Will propagate to other widgets
         self.sensors = [
-                (inToM(-36),inToM(-11)),
-                (inToM(-12),inToM(-23.5)),
-                (inToM(-9.5),inToM(15)),
-                (inToM(21),inToM(0))];
+                (inToM(48),inToM(0)),
+                (inToM(0),inToM(-41)),
+                (inToM(0),inToM(42)),
+                (inToM(-48),inToM(0)),
+                ];
         self.locator = Locator.Locator(self.sensors);
         self.screen.setSensors(self.sensors);
         self.history.screen.setSensors(self.sensors);
@@ -84,6 +85,7 @@ class AudioLocator(QMainWindow,mainUI.Ui_AudioLocator):
         pts = [];
         try:
             l = [m.group(1),m.group(2),m.group(3),m.group(4)];
+            print(l);
             for i in range(4):
                 x,y  = self.locator.locate(l,i);
                 pts.append((x,y));
@@ -92,8 +94,9 @@ class AudioLocator(QMainWindow,mainUI.Ui_AudioLocator):
                 xEdit.setText(repr(x));
                 yEdit.setText(repr(y));
             self.update();
-            self.history.memorize(pts);
             vPts = filter(lambda p: not (math.isnan(p[0]) or math.isnan(p[0])), pts);
+            self.history.memorize(pts);
+            self.screen.setCandidate(vPts);
             p = getAvg(getPair(vPts));
             self.screen.setLoc(p);
         except AttributeError:
