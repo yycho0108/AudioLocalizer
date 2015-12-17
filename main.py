@@ -18,10 +18,11 @@ from HistoryWidget import HistoryWidget
 import Locator
 
 def dist(p1,p2):
-    tot = 0;
-    for d in zip(p1,p2):
-        tot += (d[0] - d[1])**2;
-    return math.sqrt(tot);
+    return math.sqrt((p1[0] - p2[0])**2 + (p1[1] - p2[1])**2)
+    #tot = 0;
+    #for d in zip(p1,p2):
+    #    tot += (d[0] - d[1])**2;
+    #return math.sqrt(tot);
 
 def getPair(pts):
     #[].sort(key=lambda pt:pt[0]); #sort by x
@@ -36,6 +37,7 @@ def getPair(pts):
             if minDist > d:
                 minDist = d;
                 pair = (pt1,pt2);
+    print(minDist);
     return pair;
 
 def getAvg(pair):
@@ -46,6 +48,7 @@ def inToM(l):
 
 class AudioLocator(QMainWindow,mainUI.Ui_AudioLocator):
     reception = pyqtSignal();
+    calcComplete = pyqtSignal(tuple);
     def __init__(self):
         QMainWindow.__init__(self);
         self.setupUi(self);
@@ -56,8 +59,9 @@ class AudioLocator(QMainWindow,mainUI.Ui_AudioLocator):
         self.thread.setDaemon(True);
         self.thread.start();
         self.reception.connect(self.parseData);
+        self.calcComplete.connect(self.writeServo);
         self.setWindowTitle('AudioLocator');
-
+        self.ser = None;
         #set sensor value here. Will propagate to other widgets
         self.sensors = [
                 (inToM(48),inToM(0)),
@@ -74,9 +78,19 @@ class AudioLocator(QMainWindow,mainUI.Ui_AudioLocator):
     
     def fetchData(self):
         with serial.Serial(port='/dev/ttyACM0',baudrate=9600) as ser:
-            while ser._isOpen:
-                self.data = str(ser.readline());
+            self.ser = ser;
+            while self.ser._isOpen:
+                self.data = str(self.ser.readline());
                 self.reception.emit();
+
+    def writeServo(self,pt):
+        x,y = pt[0],pt[1];
+        print(pt);
+        theta = math.atan2(y,x);
+        theta = int(-math.degrees(theta)/2) % 360;
+        theta = str(theta);
+        print(theta);
+        self.ser.write(theta.encode());
 
     def parseData(self):
         reg = r"\[(.*)\s(.*)\s(.*)\s(.*)(?:\s*)?\](?:\s*)?"; #4 time vals
@@ -85,7 +99,6 @@ class AudioLocator(QMainWindow,mainUI.Ui_AudioLocator):
         pts = [];
         try:
             l = [m.group(1),m.group(2),m.group(3),m.group(4)];
-            print(l);
             for i in range(4):
                 x,y  = self.locator.locate(l,i);
                 pts.append((x,y));
@@ -94,10 +107,11 @@ class AudioLocator(QMainWindow,mainUI.Ui_AudioLocator):
                 xEdit.setText(repr(x));
                 yEdit.setText(repr(y));
             self.update();
-            vPts = filter(lambda p: not (math.isnan(p[0]) or math.isnan(p[0])), pts);
             self.history.memorize(pts);
+            vPts = list(filter(lambda p: not (math.isnan(p[0]) or math.isnan(p[0])), pts));
             self.screen.setCandidate(vPts);
             p = getAvg(getPair(vPts));
+            self.calcComplete.emit(p);
             self.screen.setLoc(p);
         except AttributeError:
             pass;
