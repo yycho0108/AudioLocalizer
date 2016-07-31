@@ -1,9 +1,10 @@
-#!/usr/bin/python3
+#!/usr/bin/python
 
 #built-in modules
 import serial, sys
 import pickle
 import threading
+import time
 import re
 import math
 
@@ -79,7 +80,7 @@ class AudioLocator(QMainWindow,mainUI.Ui_AudioLocator):
     def fetchData(self):
         with serial.Serial(port='/dev/ttyACM0',baudrate=9600) as ser:
             self.ser = ser;
-            while self.ser._isOpen:
+            while True:#self.ser._isOpen:
                 self.data = str(self.ser.readline());
                 self.reception.emit();
 
