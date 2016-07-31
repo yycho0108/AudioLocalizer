@@ -3,10 +3,20 @@ title: Audio Localizer
 description: Hear You Are!
 layout: default
 ---
+
+<image src="images/sample.png"></br>
+<p> <font color="blue">Blue</font> : sensors, <font color="green">Green</font> : candidates, <font color="red">Red</font> : estimated sound source.</p>
+
+<p>Audio Localizer is the final project for Introduction to Sensors, Instrumentation, and Measurements (ISIM).</p>
+<p>It is based on an aggressive band-pass filter around clap frequency (20 kHz), to localize the sound source.</p>
+<p>The Arduino acts as the communication channel between the four sonar sensors and the servo.</p>
+<p>Computation occurs on the main computer with SymPy, and returns the result to the arduino.</p>
+<p>The location is visualized with PyQt4.</p>
+
+<p>Arduino then takes the input and, based on the identified location, rotates the arrow mounted on the servo to point towards the sound source.</p>
+
+<p>Demo Video : </p>
 <video controls width="100%" height="100%">
 	Your Browser Does Not Support The Video Tag.
 	<source src="videos/AudioLocator.mp4" type="video/mp4">
 </video>
-<p>Interpolated triangulation based on four sonar sensors, filtered around clap frequency(20 kHz) to localize
-sound source. Arduino reports preprocessed data from sensors, and controls Servo; Computation on the main
-PC with SymPy; UI design and visualization with PyQt4</p>
